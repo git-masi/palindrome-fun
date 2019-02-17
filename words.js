@@ -3,7 +3,6 @@
 // part of the letterpress word list repo on github https://github.com/atebits/Words
 
 const wordsMasterArr = [
-  "aa",
   "aah",
   "aahed",
   "aahing",
