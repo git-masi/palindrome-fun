@@ -41,17 +41,17 @@
         <div class="display-wrapper p-2">
           <div>
             <h3>No seriously, check it out!</h3>
-            <form>
+            <div>
               <label for="alphaCharacter">Sort By a Specific Letter</label>
               <input type="text" name="alphaCharacter" maxlength="1" pattern="[A-Za-z]{1}" placeholder="a">
-              <button type="submit">Sort!</button>
-            </form>
+              <button id="sort">Sort!</button>
+            </div>
           </div>
           <div id="word-list"></div>
         </div>
       </div>
       <div class="panel-buttons">
-        <button>Huh? There can't be that many words.</button>
+        <button id="show-word-list">Huh? There can't be that many words.</button>
         <a href="#panel-3">Oh cool... now what?</a>
       </div>
     </section>
