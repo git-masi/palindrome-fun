@@ -39,7 +39,14 @@
       </div>
       <div class="panel-display">
         <div class="display-wrapper p-2">
-          <h3>No seriously, check it out!</h3>
+          <div>
+            <h3>No seriously, check it out!</h3>
+            <form>
+              <label for="alphaCharacter">Sort By a Specific Letter</label>
+              <input type="text" name="alphaCharacter" maxlength="1" pattern="[A-Za-z]{1}" placeholder="a">
+              <button type="submit">Sort!</button>
+            </form>
+          </div>
           <div id="word-list"></div>
         </div>
       </div>
@@ -57,9 +64,11 @@
       </div>
       <div class="panel-display">
         <div class="display-wrapper p-2">
-          <p>So of these 236,154 words how many do you think are palindromes?</p>
-          <label for="number">Enter a number</label>
-          <input type="number" name="number">
+          <form>
+            <p>So of these 236,154 words how many do you think are palindromes?</p>
+            <label for="number">Enter a number</label>
+            <input type="number" name="number" pattern="[0-9]{1,5}">
+          </form>
         </div>
       </div>
       <div class="panel-buttons">
