@@ -102,7 +102,7 @@ ul li {
   grid-template-rows: 1fr 4fr 1fr;
 
   border-radius: 5rem;
-  background: var(--clr-primary);
+  background: linear-gradient(to bottom right, var(--clr-primary),  var(--clr-analog1));
 }
 
 .panel-header {

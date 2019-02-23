@@ -6,13 +6,16 @@
 // });
 
 const wordListDisplay = document.getElementById('word-list');
-const panelTwoButton = document.getElementById('show-word-list');
+const showWordListButton = document.getElementById('show-word-list');
 
-panelTwoButton.addEventListener('click', ()=> {
-	for (let i = 0; i < 1000; i++){
-		wordListDisplay.textContent += wordsMasterArr[i]+'\n';
-	};
-	panelTwoButton.disabled = 'true';
+function filterArrByChar(char = 'a', arr){
+  return arr.filter(word => word[0] == char);
+}
+
+showWordListButton.addEventListener('click', ()=> {
+  let initialListDisplay = filterArrByChar('a', wordsMasterArr);
+  initialListDisplay.forEach(word => wordListDisplay.textContent += word + '\n');
+	showWordListButton.disabled = 'true';
 });
 
 const letterInput = document.querySelector('#panel-2 > section > div.panel-display > div > div:nth-child(1) > div > input[type="text"]');
@@ -25,6 +28,8 @@ sortButton.addEventListener('click', ()=> {
   filteredArr.forEach(word => wordListDisplay.textContent += word + '\n');
 });
 
-function filterArrByChar(char = 'a', arr){
-	return arr.filter(word => word[0] == char);
+function palindromeCheck(arr){
+  return arr.filter(word => word == word.split('').reverse().join(''));
 }
+
+const finalPalindromeList = palindromeCheck(wordsMasterArr);
