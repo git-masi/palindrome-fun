@@ -5,6 +5,9 @@
 // 	document.querySelector('.panel > .wrapper').classList.add('fade-in');
 // });
 
+
+// panel 2 buttons and display
+
 const wordListDisplay = document.getElementById('word-list');
 const showWordListButton = document.getElementById('show-word-list');
 
@@ -27,6 +30,39 @@ sortButton.addEventListener('click', ()=> {
   let filteredArr = filterArrByChar(letter, wordsMasterArr);
   filteredArr.forEach(word => wordListDisplay.textContent += word + '\n');
 });
+
+// panel 3 guess 
+
+const guessForm = document.querySelector('#panel-3 > section > div.panel-display > div > form');
+const guessNumberInput = document.querySelector('#panel-3 > section > div.panel-display > div > form > input[type="number"]');
+const tellMeButton = document.querySelector('#panel-3 > section > div.panel-buttons > button');
+const submitGuessButton = document.querySelector('#panel-3 > section > div.panel-buttons > a');
+let guessAmount = 0;
+
+if(guessForm.addEventListener){
+  guessForm.addEventListener('submit', ()=>{
+    guessAmount = Number(guessNumberInput.value);
+  }, false);
+}
+
+guessNumberInput.addEventListener('keypress', (e)=> {
+  let key = e.which || e.keyCode;
+  if (key === 13) {
+    guessAmount = Number(guessNumberInput.value);
+  }
+});
+
+submitGuessButton.addEventListener('click', ()=> {
+  guessAmount = Number(guessNumberInput.value);
+  if (guessNumberInput.value == ''){
+    submitGuessButton.href = 'javascript:void(0)';
+  } else {
+    submitGuessButton.href = '#panel-4'
+  };
+});
+
+
+// panel 4
 
 function palindromeCheck(arr){
   return arr.filter(word => word == word.split('').reverse().join(''));
