@@ -224,3 +224,9 @@ ul li {
   white-space: pre;
   overflow: auto;
 }
+
+/* panel 3 */
+
+.tell-me-display {
+  border: 2px solid black;
+}
