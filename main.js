@@ -48,6 +48,11 @@ guessNumberInput.addEventListener('keypress', (e)=> {
 
 });
 
+tellMeButton.addEventListener('click', ()=> {
+  document.querySelector('.tell-me-display').textContent = 'Where\'s the fun in that?'
+  tellMeButton.style.display = 'none';
+});
+
 submitGuessButton.addEventListener('click', ()=> {
   guessAmount = Number(guessNumberInput.value);
   if (guessNumberInput.value == ''){
