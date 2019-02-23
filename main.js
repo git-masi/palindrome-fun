@@ -5,6 +5,40 @@
 // 	document.querySelector('.panel > .wrapper').classList.add('fade-in');
 // });
 
+//smooth scroll
+
+const scrollTime = 1000;
+
+function smoothScroll(target, duration) {
+  let targetPosition = target.getBoundingClientRect().top;
+  let startPosition = window.pageYOffset || window.scrollY;
+  let startTime = null;
+  
+  function loop(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    let timeElapsed = currentTime - startTime;
+    let run = ease(timeElapsed, startPosition, targetPosition, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) requestAnimationFrame(loop);
+  }
+  function ease(t, b, c, d) {
+    t /= d / 2;
+    if (t < 1) return c / 2 * t * t + b;
+    t--;
+    return -c / 2 * (t * (t - 2) - 1) + b;
+  }
+  requestAnimationFrame(loop);
+}
+
+//Back button controls
+
+const backButton = document.querySelector('.back-button');
+let backPanelTracker = 0;
+backButton.addEventListener('click',()=>{
+  let toPanel = document.querySelector(`#panel-${backPanelTracker}`);
+  smoothScroll(toPanel, scrollTime);
+});
+
 
 // panel 2 buttons and display
 
