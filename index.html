@@ -64,11 +64,11 @@
       </div>
       <div class="panel-display">
         <div class="display-wrapper p-2">
-          <form>
+          <div>
             <p>So of these 274,923 words how many do you think are palindromes?</p>
             <label for="number">Enter a number</label>
-            <input type="number" name="number" pattern="[0-9]{1,5}" min="1" placeholder="enter positive integer">
-          </form>
+            <input type="number" name="number" pattern="[0-9]{1}" min="1" placeholder="enter positive integer">
+          </div>
         </div>
       </div>
       <div class="panel-buttons">
@@ -89,6 +89,7 @@
           <h3>Here's all the palindromes in our list</h3>
           <div class="final-list"></div>
         </div>
+        <div id="palindrome-list"></div>
       </div>
       <div class="panel-buttons">
         <!-- <button>Wait, what's a palindrome?</button> -->
