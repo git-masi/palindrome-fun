@@ -1,10 +1,3 @@
-// const buttonOne = document.getElementById('btn1');
-// buttonOne.addEventListener('click',()=>{
-// 	document.querySelector('[data-panel="1"]').style.display = 'block';
-// 	document.querySelector('[data-panel="1"]').classList.add('animate');
-// 	document.querySelector('.panel > .wrapper').classList.add('fade-in');
-// });
-
 //smooth scroll
 
 const scrollTime = 1000;
@@ -36,11 +29,28 @@ const backButton = document.querySelector('.back-button');
 let backPanelTracker = 0;
 backButton.addEventListener('click',()=>{
   let toPanel = document.querySelector(`#panel-${backPanelTracker}`);
+  backPanelTracker -= 1;
   smoothScroll(toPanel, scrollTime);
 });
 
+// all panels
 
-// panel 2 buttons and display
+const panel1 = document.querySelector('#panel-1');
+const panel2 = document.querySelector('#panel-2');
+const panel3 = document.querySelector('#panel-3');
+const panel4 = document.querySelector('#panel-4');
+const panel5 = document.querySelector('#panel-5');
+
+// panel 1
+
+const letsGoButton = document.querySelector('#panel-1 > section > div.panel-buttons > a');
+
+letsGoButton.addEventListener('click', ()=>{
+  backPanelTracker += 1;
+  smoothScroll(panel2, scrollTime);
+});
+
+// panel 2
 
 const wordListDisplay = document.getElementById('word-list');
 const showWordListButton = document.getElementById('show-word-list');
@@ -65,7 +75,13 @@ sortButton.addEventListener('click', ()=> {
   filteredArr.forEach(word => wordListDisplay.textContent += word + '\n');
 });
 
-// panel 3 guess 
+const nowWhatButton = document.querySelector('#panel-2 > section > div.panel-buttons > a');
+nowWhatButton.addEventListener('click', ()=>{
+  backPanelTracker += 1;
+  smoothScroll(panel3, scrollTime);
+});
+
+// panel 3
 
 const guessForm = document.querySelector('#panel-3 > section > div.panel-display > div > div');
 const guessNumberInput = document.querySelector('#panel-3 > section > div.panel-display > div > div > input[type="number"]');
@@ -92,7 +108,8 @@ submitGuessButton.addEventListener('click', ()=> {
   if (guessNumberInput.value == ''){
     submitGuessButton.href = 'javascript:void(0)';
   } else {
-    submitGuessButton.href = '#panel-4'
+    backPanelTracker += 1;
+    smoothScroll(panel4, scrollTime);
   };
 });
 
@@ -103,11 +120,11 @@ function palindromeCheck(arr){
   return arr.filter(word => word == word.split('').reverse().join(''));
 }
 
-const panel4 = document.querySelector('#panel-4');
 const guessStats = document.querySelector('#panel-4 > section > div.panel-display > div.display-wrapper.p-2 > p');
 const finalPalindromeList = palindromeCheck(wordsMasterArr);
 const palindromeTotal = finalPalindromeList.length;
 const palindromeListDisplay = document.querySelector('#palindrome-list');
+const neatButton = document.querySelector('#panel-4 > section > div.panel-buttons > a');
 
 let checkGuess = ()=>{
   let num = Math.abs(Number(guessAmount - palindromeTotal)).toString();
@@ -124,10 +141,16 @@ let checkGuess = ()=>{
 };
 
 window.addEventListener('scroll', () => {
-  if (panel4.getBoundingClientRect().top == 0){
+  let displayTop = panel4.getBoundingClientRect().top; 
+  if (displayTop >= 0 && displayTop < 1){
     guessStats.textContent = `${checkGuess()}`
     finalPalindromeList.forEach(word => palindromeListDisplay.textContent += word + '\n');
   } else {
     palindromeListDisplay.textContent = '';
   };
+});
+
+neatButton.addEventListener('click', ()=>{
+  backPanelTracker += 1;
+  smoothScroll(panel5, scrollTime);
 });
