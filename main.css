@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--clr-offwhite);
 
@@ -118,6 +118,7 @@ ul li {
 .panel-display {
   width: 90%;
   margin: 0 auto;
+  visibility: hidden;
 }
 
 .display-wrapper {
