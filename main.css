@@ -64,6 +64,14 @@ ul li {
   padding: 2rem;
 }
 
+.show {
+  visibility: visible;
+}
+
+@keyframes someName {
+  
+}
+
 /* main content area */
 
 .back-button {
