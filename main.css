@@ -65,12 +65,36 @@ ul li {
 }
 
 .show {
-  visibility: visible;
+  animation: flipInY 1000ms forwards;
 }
 
-@keyframes someName {
-  
+@keyframes flipInY {
+  from {
+    transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+    animation-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+  }
+
+  to {
+    transform: perspective(400px);
+    opacity: 1;
+  }
 }
+
 
 /* main content area */
 
@@ -126,7 +150,7 @@ ul li {
 .panel-display {
   width: 90%;
   margin: 0 auto;
-  visibility: hidden;
+  opacity: 0;
 }
 
 .display-wrapper {

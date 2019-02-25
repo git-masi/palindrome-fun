@@ -41,27 +41,43 @@ const panel3 = document.querySelector('#panel-3');
 const panel4 = document.querySelector('#panel-4');
 const panel5 = document.querySelector('#panel-5');
 
+const panel1Display = document.querySelector('#panel-1 .panel .panel-display');
+const panel2Display = document.querySelector('#panel-2 .panel .panel-display');
+const panel3Display = document.querySelector('#panel-3 .panel .panel-display');
+const panel4Display = document.querySelector('#panel-4 .panel .panel-display');
+const panel5Display = document.querySelector('#panel-5 .panel .panel-display');
+
+
 // panel 1
 
 const letsGoButton = document.querySelector('#panel-1 > section > div.panel-buttons > a');
+const waitWhatButton = document.querySelector('#panel-1 > section > div.panel-buttons > button');
 
 letsGoButton.addEventListener('click', ()=>{
   backPanelTracker += 1;
   smoothScroll(panel2, scrollTime);
 });
 
+waitWhatButton.addEventListener('click', ()=>{
+  panel1Display.classList.add('show');
+});
+
 // panel 2
 
 const wordListDisplay = document.getElementById('word-list');
 const showWordListButton = document.getElementById('show-word-list');
+const cantBeButton = document.querySelector('#panel-2 > section > div.panel-buttons > button');
 
 function filterArrByChar(char = 'a', arr){
   return arr.filter(word => word[0] == char);
 }
 
 showWordListButton.addEventListener('click', ()=> {
-  let initialListDisplay = filterArrByChar('a', wordsMasterArr);
-  initialListDisplay.forEach(word => wordListDisplay.textContent += word + '\n');
+  panel2Display.classList.add('show');
+  setTimeout(()=>{
+    let initialListDisplay = filterArrByChar('a', wordsMasterArr);
+    initialListDisplay.forEach(word => wordListDisplay.textContent += word + '\n');
+  }, 100);
 	showWordListButton.disabled = 'true';
 });
 
@@ -89,13 +105,22 @@ const tellMeButton = document.querySelector('#panel-3 > section > div.panel-butt
 const submitGuessButton = document.querySelector('#panel-3 > section > div.panel-buttons > a');
 let guessAmount = 0;
 
+window.addEventListener('scroll', () => {
+  let displayTop = panel3.getBoundingClientRect().top;
+  setTimeout(()=>{
+    if (displayTop >= 0 && displayTop < 1){
+      panel3Display.classList.add('show');
+    };
+  }, 1000);
+});
+
 guessNumberInput.addEventListener('keypress', (e)=> {
   let key = e.which || e.keyCode;
   if (key === 13) {
     guessAmount = Number(guessNumberInput.value);
     submitGuessButton.click();
   }
-
+  
 });
 
 tellMeButton.addEventListener('click', ()=> {
@@ -115,6 +140,15 @@ submitGuessButton.addEventListener('click', ()=> {
 
 
 // panel 4
+
+window.addEventListener('scroll', () => {
+  let displayTop = panel4.getBoundingClientRect().top;
+  setTimeout(()=>{
+    if (displayTop >= 0 && displayTop < 1){
+      panel4Display.classList.add('show');
+    };
+  }, 1000);
+});
 
 function palindromeCheck(arr){
   return arr.filter(word => word == word.split('').reverse().join(''));
