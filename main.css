@@ -2,17 +2,12 @@ html {
   font-size: 62.5%;
 }
 
-html,
-body {
-  /* height: 100%; */
-}
-
 body {
   font-size: 1.8rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: var(--clr-offwhite);
 
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 :root {
@@ -138,9 +133,11 @@ ul li {
 }
 
 .panel-header {
+  padding: 0 1.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
   font-size: 2.5rem;
 
   color: var(--clr-primary-dark);
@@ -299,4 +296,16 @@ ul li {
 #palindrome-list {
   flex: 5;
   overflow: hidden;
+}
+
+/* panel 5 */
+
+#panel-5 .letterpress-link {
+  display: inline;
+  text-decoration: underline;
+  text-decoration-color:  var(--clr-primary-dark);
+}
+
+#panel-5 .letterpress-link:hover {
+  border: none;
 }

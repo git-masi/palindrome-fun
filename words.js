@@ -192844,6 +192844,7 @@ const wordsMasterArr = [
   "raccoons",
   "race",
   "raceable",
+  "racecar",
   "racecard",
   "racecards",
   "racecourse",
