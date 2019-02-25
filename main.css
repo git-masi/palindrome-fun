@@ -260,6 +260,43 @@ ul li {
 
 /* panel 3 */
 
+#panel-3 .display-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.guess-panel-main-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex: 2;
+}
+
+.guess-panel-main-text * {
+  flex-basis: 20%;
+}
+
 .tell-me-display {
-  border: 2px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+/* panel 4 */
+
+#panel-4 .display-wrapper {
+  display: flex;
+  flex-direction: column; 
+}
+
+#panel-4 .display-wrapper *:not(:last-child) {
+  flex: 1;
+}
+#palindrome-list {
+  flex: 5;
+  overflow: hidden;
 }

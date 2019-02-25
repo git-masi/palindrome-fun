@@ -188,3 +188,14 @@ neatButton.addEventListener('click', ()=>{
   backPanelTracker += 1;
   smoothScroll(panel5, scrollTime);
 });
+
+// panel 5
+
+window.addEventListener('scroll', () => {
+  let displayTop = panel5.getBoundingClientRect().top;
+  setTimeout(()=>{
+    if (displayTop >= 0 && displayTop < 1){
+      panel5Display.classList.add('show');
+    };
+  }, 1000);
+});

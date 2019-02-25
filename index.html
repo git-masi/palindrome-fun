@@ -64,9 +64,9 @@
       </div>
       <div class="panel-display">
         <div class="display-wrapper p-2">
-          <div>
+          <div class="guess-panel-main-text">
             <p>So of these 274,923 words how many do you think are palindromes?</p>
-            <label for="number">Enter a number</label>
+            <label for="number">Enter a number and take a guess</label>
             <input type="number" name="number" pattern="[0-9]{1}" min="1" placeholder="enter positive integer">
           </div>
           <div class="tell-me-display"></div>
@@ -87,10 +87,9 @@
       <div class="panel-display">
         <div class="display-wrapper p-2">
           <p>That's a really good guess, unfortunately you were off by __.</p>
-          <h3>Here's all the palindromes in our list</h3>
-          <div class="final-list"></div>
+          <h3>Here's all the palindromes in the list:</h3>
+          <div id="palindrome-list"></div>
         </div>
-        <div id="palindrome-list"></div>
       </div>
       <div class="panel-buttons">
         <!-- <button>Wait, what's a palindrome?</button> -->
